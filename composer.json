@@ -1,5 +1,5 @@
 {
-  "name": "bclib/fulltext-finder",
+  "name": "bclibraries/fulltext-finder",
   "description": "Finds links to fulltexts from citations",
   "type": "library",
   "license": "MIT",
