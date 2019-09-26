@@ -26,6 +26,8 @@ $doi = $search_text->getDOI();
 
 # Running tests
 
+[PHPUnit](https://phpunit.de/) is used for testing. You may need to enable the sockets extension.
+
 ```bash
 ./vendor/bin/phpunit 
 ```
