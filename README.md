@@ -16,12 +16,19 @@ FulltextFinder is currently a 0.* release, so things will change drastically wit
 ## Usage
 
 ```php
-use \BCLib\FulltextFinder\SearchText;
+use BCLib\FulltextFinder\FullTextFinder;
 
-require_once 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
-$search_text = new SearchText('https://doi.org/10.1108/RR-07-2014-0203');
-$doi = $search_text->getDOI();
+$citation = 'cooperative problem solving in giant otters doi:10.1007/s10071-017-1126-2';
+$libkey_library_id = '###';
+$libkey_apikey ='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx';
+
+
+$finder = FullTextFinder::build($libkey_library_id, $libkey_apikey);
+$libkey_response = $finder->find($citation);
+
+echo "Full text PDF at {$libkey_response->full_text_file}\n";
 ```
 
 # Running tests

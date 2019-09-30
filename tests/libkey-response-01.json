@@ -1,0 +1,36 @@
+{
+  "data": {
+    "id": 151576387,
+    "type": "articles",
+    "title": "Cooperative problem solving in giant otters (Pteronura brasiliensis) and Asian small-clawed otters (Aonyx cinerea)",
+    "date": "2017-08-24",
+    "authors": "Schmelz, Martin; Duguid, Shona; Bohn, Manuel; Völter, Christoph J.",
+    "inPress": false,
+    "fullTextFile": "https://libkey.io/libraries/431/articles/151576387/full-text-file?utm_source=api_536",
+    "contentLocation": "https://libkey.io/libraries/431/articles/151576387",
+    "availableThroughBrowzine": true,
+    "startPage": "1107",
+    "endPage": "1114",
+    "browzineWebLink": "https://browzine.com/libraries/431/journals/2512/issues/103325497?showArticleInContext=doi:10.1007%2Fs10071-017-1126-2&utm_source=api_536",
+    "relationships": {
+      "journal": {
+        "data": {
+          "type": "journals",
+          "id": 2512
+        }
+      }
+    }
+  },
+  "included": [
+    {
+      "id": 2512,
+      "type": "journals",
+      "title": "Animal Cognition",
+      "issn": "14359448",
+      "sjrValue": 1.233,
+      "coverImageUrl": "https://assets.thirdiron.com/images/covers/1435-9448.png",
+      "browzineEnabled": true,
+      "browzineWebLink": "https://browzine.com/libraries/431/journals/2512?utm_source=api_536"
+    }
+  ]
+}
