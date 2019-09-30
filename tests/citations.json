@@ -96,5 +96,26 @@
     "source": "",
     "doiInText": true,
     "doi": "10.1080/23251042.2018.1514942"
+  },
+  {
+    "text": "http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0144297",
+    "style": "",
+    "source": "plos",
+    "doiInText": true,
+    "doi": "10.1371/journal.pone.0144297"
+  },
+  {
+    "text": "http://www.jstor.org/stable/10.13110/antipodes.27.2.0157#references_tab_contents",
+    "style": "",
+    "source": "jstor",
+    "doiInText": true,
+    "doi": "10.13110/antipodes.27.2.0157"
+  },
+  {
+    "text": "http://link.springer.com/article/10.1007%2Fs10552-015-0707-0",
+    "style": "",
+    "source": "springer",
+    "doiInText": true,
+    "doi": "10.1007/s10552-015-0707-0"
   }
 ]
