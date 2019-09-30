@@ -43,8 +43,6 @@ class FullTextFinder
     public function find(string $search_string): ?LibKey\LibKeyResponse
     {
         if ($doi = $this->getDOI($search_string)) {
-            echo "SEARCHING FOR $doi\n";
-
             $api_response = $this->libkey->request($doi);
 
             if ($api_response->getStatusCode() === 200) {
@@ -57,12 +55,16 @@ class FullTextFinder
 
     /**
      * Extract a DOI from a string
-     **/
+     *
+     * @param string $search_string
+     * @return string|null
+     */
     public function getDOI(string $search_string): ?string
     {
         $matches = [];
+        $decoded_search_string = urldecode($search_string);
         foreach (self::DOI_REGEXES as $regex) {
-            if (preg_match($regex, $search_string, $matches)) {
+            if (preg_match($regex, $decoded_search_string, $matches)) {
 
                 // Strip trailing periods.
                 return rtrim($matches[0], '.');
