@@ -117,5 +117,12 @@
     "source": "springer",
     "doiInText": true,
     "doi": "10.1007/s10552-015-0707-0"
+  },
+  {
+    "text": "https://onlinelibrary.wiley.com/doi/abs/10.1002/%28SICI%291097-0266%28199704%2918%3A4%3C303%3A%3AAID-SMJ869%3E3.0.CO%3B2-G",
+    "style": "",
+    "source": "wiley",
+    "doiInText": true,
+    "doi": "10.1002/(SICI)1097-0266(199704)18:4<303::AID-SMJ869>3.0.CO;2-G"
   }
 ]

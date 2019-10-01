@@ -10,7 +10,7 @@ class FullTextFinder
 {
     // See https://www.crossref.org/blog/dois-and-matching-regular-expressions/.
     private const DOI_REGEXES = [
-        '/10.\d{4,9}\/[-._;\/\(\)\:A-Z0-9]+/i', // Catches most modern DOIs
+        '/10.\d{4,9}\/[-._;\/\(\)\:<>A-Z0-9]+/i', // Catches most modern DOIs
         '/10.1002[^\s]+/' // Catches older Wiley DOIs
     ];
 
