@@ -1,8 +1,11 @@
 <?php
 
+namespace BCLib\Tests;
+
+use BCLib\FulltextFinder\LibKey\LibKeyParser;
 use PHPUnit\Framework\TestCase;
 
-class ResponseParserTest extends TestCase
+class LibKeyParserTest extends TestCase
 {
     /**
      * @var \BCLib\FulltextFinder\LibKey\LibKeyParser
@@ -22,7 +25,7 @@ class ResponseParserTest extends TestCase
 
     public function testParseParsesCorrectly()
     {
-        $response = $this->parser->parse($this->json);
+        $response = LibKeyParser::parse($this->json);
 
         // Data
         $this->assertEquals(151576387, $response->id);

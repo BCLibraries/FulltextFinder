@@ -1,0 +1,591 @@
+{
+  "status": "ok",
+  "message-type": "work",
+  "message-version": "1.0.0",
+  "message": {
+    "indexed": {
+      "date-parts": [
+        [
+          2019,
+          9,
+          23
+        ]
+      ],
+      "date-time": "2019-09-23T15:43:27Z",
+      "timestamp": 1569253407074
+    },
+    "reference-count": 36,
+    "publisher": "Springer Nature",
+    "issue": "6",
+    "license": [
+      {
+        "URL": "http:\/\/creativecommons.org\/licenses\/by\/4.0",
+        "start": {
+          "date-parts": [
+            [
+              2017,
+              8,
+              24
+            ]
+          ],
+          "date-time": "2017-08-24T00:00:00Z",
+          "timestamp": 1503532800000
+        },
+        "delay-in-days": 0,
+        "content-version": "unspecified"
+      }
+    ],
+    "content-domain": {
+      "domain": [
+        "link.springer.com"
+      ],
+      "crossmark-restriction": false
+    },
+    "short-container-title": [
+      "Anim Cogn"
+    ],
+    "published-print": {
+      "date-parts": [
+        [
+          2017,
+          11
+        ]
+      ]
+    },
+    "DOI": "10.1007\/s10071-017-1126-2",
+    "type": "journal-article",
+    "created": {
+      "date-parts": [
+        [
+          2017,
+          8,
+          24
+        ]
+      ],
+      "date-time": "2017-08-24T14:53:03Z",
+      "timestamp": 1503586383000
+    },
+    "page": "1107-1114",
+    "update-policy": "http:\/\/dx.doi.org\/10.1007\/springer_crossmark_policy",
+    "source": "Crossref",
+    "is-referenced-by-count": 5,
+    "title": [
+      "Cooperative problem solving in giant otters (Pteronura brasiliensis) and Asian small-clawed otters (Aonyx cinerea)"
+    ],
+    "prefix": "10.1007",
+    "volume": "20",
+    "author": [
+      {
+        "given": "Martin",
+        "family": "Schmelz",
+        "sequence": "first",
+        "affiliation": []
+      },
+      {
+        "ORCID": "http:\/\/orcid.org\/0000-0003-4844-0673",
+        "authenticated-orcid": false,
+        "given": "Shona",
+        "family": "Duguid",
+        "sequence": "additional",
+        "affiliation": []
+      },
+      {
+        "given": "Manuel",
+        "family": "Bohn",
+        "sequence": "additional",
+        "affiliation": []
+      },
+      {
+        "given": "Christoph J.",
+        "family": "V\u00f6lter",
+        "sequence": "additional",
+        "affiliation": []
+      }
+    ],
+    "member": "297",
+    "published-online": {
+      "date-parts": [
+        [
+          2017,
+          8,
+          24
+        ]
+      ]
+    },
+    "reference": [
+      {
+        "issue": "1",
+        "key": "1126_CR1",
+        "doi-asserted-by": "publisher",
+        "first-page": "1",
+        "DOI": "10.18637\/jss.v067.i01",
+        "volume": "67",
+        "author": "D Bates",
+        "year": "2015",
+        "unstructured": "Bates D, Machler M, Bolker BM, Walker SC (2015) Fitting linear mixed-effects models using lme4. J Stat Softw 67(1):1\u201348. doi: 10.18637\/jss.v067.i01",
+        "journal-title": "J Stat Softw"
+      },
+      {
+        "issue": "4",
+        "key": "1126_CR2",
+        "doi-asserted-by": "crossref",
+        "first-page": "547",
+        "DOI": "10.1002\/ajpa.1330780410",
+        "volume": "78",
+        "author": "C Boesch",
+        "year": "1989",
+        "unstructured": "Boesch C, Boesch H (1989) Hunting behavior of wild chimpanzees in the Tai National Park. Am J Phys Anthropol 78(4):547\u2013573",
+        "journal-title": "Am J Phys Anthropol"
+      },
+      {
+        "issue": "1553",
+        "key": "1126_CR3",
+        "doi-asserted-by": "publisher",
+        "first-page": "2699",
+        "DOI": "10.1098\/rstb.2010.0154",
+        "volume": "365",
+        "author": "SF Brosnan",
+        "year": "2010",
+        "unstructured": "Brosnan SF, Salwiczek L, Bshary R (2010) The interplay of cognition and cooperation. Philos Trans R Soc Lond B Biol Sci 365(1553):2699\u20132710. doi:\n                        10.1098\/rstb.2010.0154",
+        "journal-title": "Philos Trans R Soc Lond B Biol Sci"
+      },
+      {
+        "issue": "1",
+        "key": "1126_CR4",
+        "doi-asserted-by": "publisher",
+        "first-page": "1",
+        "DOI": "10.1007\/s10071-009-0263-7",
+        "volume": "13",
+        "author": "JM Burkart",
+        "year": "2010",
+        "unstructured": "Burkart JM, van Schaik CP (2010) Cognitive consequences of cooperative breeding in primates? Anim Cogn 13(1):1\u201319. doi:\n                        10.1007\/s10071-009-0263-7",
+        "journal-title": "Anim Cogn"
+      },
+      {
+        "key": "1126_CR5",
+        "author": "RW Byrne",
+        "year": "1988",
+        "unstructured": "Byrne RW, Whiten A (1988) Machiavellian intelligence: social expertise and the evolution of intellect in monkeys, apes and humans. Clarendon Press, Oxford",
+        "volume-title": "Machiavellian intelligence: social expertise and the evolution of intellect in monkeys, apes and humans"
+      },
+      {
+        "key": "1126_CR6",
+        "author": "AJ Dobson",
+        "year": "2008",
+        "edition": "3",
+        "unstructured": "Dobson AJ, Barnett AG (2008) An introduction to generalized linear models, 3rd edn. CRC Press, Boca Raton",
+        "volume-title": "An introduction to generalized linear models"
+      },
+      {
+        "issue": "4",
+        "key": "1126_CR7",
+        "doi-asserted-by": "crossref",
+        "first-page": "967",
+        "DOI": "10.1016\/j.anbehav.2009.06.030",
+        "volume": "78",
+        "author": "CM Drea",
+        "year": "2009",
+        "unstructured": "Drea CM, Carter AN (2009) Cooperative problem solving in a social carnivore. Anim Behav 78(4):967\u2013977",
+        "journal-title": "Anim Behav"
+      },
+      {
+        "issue": "5",
+        "key": "1126_CR8",
+        "doi-asserted-by": "crossref",
+        "first-page": "562",
+        "DOI": "10.1080\/03014460902960289",
+        "volume": "36",
+        "author": "RIM Dunbar",
+        "year": "2009",
+        "unstructured": "Dunbar RIM (2009) The social brain hypothesis and its implications for social evolution. Ann Hum Biol 36(5):562\u2013572",
+        "journal-title": "Ann Hum Biol"
+      },
+      {
+        "issue": "8",
+        "key": "1126_CR9",
+        "doi-asserted-by": "crossref",
+        "first-page": "695",
+        "DOI": "10.1111\/j.1439-0310.1998.tb00103.x",
+        "volume": "104",
+        "author": "RIM Dunbar",
+        "year": "1998",
+        "unstructured": "Dunbar RIM, Bever J (1998) Neocortex size predicts group size in carnivores and some insectivores. Ethology 104(8):695\u2013708",
+        "journal-title": "Ethology"
+      },
+      {
+        "key": "1126_CR10",
+        "first-page": "496",
+        "volume": "34",
+        "author": "N Duplaix",
+        "year": "1980",
+        "unstructured": "Duplaix N (1980) Observations on the ecology and behavior of the giant river otter, Pteronura brasiliensis, in Suriname. Rev Ecol (Terre Vie) 34:496\u2013620",
+        "journal-title": "Rev Ecol (Terre Vie)"
+      },
+      {
+        "key": "1126_CR11",
+        "author": "IC Gilby",
+        "first-page": "220",
+        "year": "2010",
+        "unstructured": "Gilby IC, Connor RC (2010) The role of intelligence in group hunting: are chimpanzees different from other social predators? In: Lonsdorf EV, Ross SR, Matsuzawa T (eds) The mind of the chimpanzee: ecological and experimental perspectives. University of Chicago Press, Chicago, pp 220\u2013233",
+        "volume-title": "The mind of the chimpanzee: ecological and experimental perspectives"
+      },
+      {
+        "issue": "8",
+        "key": "1126_CR12",
+        "doi-asserted-by": "crossref",
+        "first-page": "e106202",
+        "DOI": "10.1371\/journal.pone.0106202",
+        "volume": "9",
+        "author": "J Groenendijk",
+        "year": "2014",
+        "unstructured": "Groenendijk J, Hajek F, Johnson PJ, Macdonald DW, Calvimontes J, Staib E, Schenck C (2014) Demography of the giant otter (Pteronura brasiliensis) in Manu National Park, south-eastern Peru: implications for conservation. PLoS ONE 9(8):e106202",
+        "journal-title": "PLoS ONE"
+      },
+      {
+        "issue": "7",
+        "key": "1126_CR13",
+        "doi-asserted-by": "crossref",
+        "first-page": "619",
+        "DOI": "10.1016\/j.cub.2007.02.040",
+        "volume": "17",
+        "author": "B Hare",
+        "year": "2007",
+        "unstructured": "Hare B, Melis AP, Woods V, Hastings S, Wrangham R (2007) Tolerance allows bonobos to outperform chimpanzees on a cooperative task. Curr Biol 17(7):619\u2013623",
+        "journal-title": "Curr Biol"
+      },
+      {
+        "issue": "2",
+        "key": "1126_CR14",
+        "doi-asserted-by": "crossref",
+        "first-page": "e0169799",
+        "DOI": "10.1371\/journal.pone.0169799",
+        "volume": "12",
+        "author": "M Heaney",
+        "year": "2017",
+        "unstructured": "Heaney M, Gray RD, Taylor AH (2017) Keas perform similarly to chimpanzees and elephants when solving collaborative tasks. PLoS ONE 12(2):e0169799",
+        "journal-title": "PLoS ONE"
+      },
+      {
+        "issue": "1",
+        "key": "1126_CR15",
+        "doi-asserted-by": "crossref",
+        "first-page": "13",
+        "DOI": "10.1007\/s10329-006-0022-1",
+        "volume": "48",
+        "author": "S Hirata",
+        "year": "2007",
+        "unstructured": "Hirata S, Fuwa K (2007) Chimpanzees (Pan troglodytes) learn to act with other individuals in a cooperative task. Primates 48(1):13\u201321",
+        "journal-title": "Primates"
+      },
+      {
+        "key": "1126_CR16",
+        "author": "NK Humphrey",
+        "first-page": "303",
+        "year": "1976",
+        "unstructured": "Humphrey NK (1976) The social function of intellect. In: Bateson PPG, Hinde RA (eds) Growing points in ethology. Cambridge University Press, Cambridge, pp 303\u2013317",
+        "volume-title": "Growing points in ethology"
+      },
+      {
+        "issue": "2",
+        "key": "1126_CR17",
+        "first-page": "63",
+        "volume": "28",
+        "author": "SA Hussain",
+        "year": "2011",
+        "unstructured": "Hussain SA, Gupta SK, de Silva PK (2011) Biology and ecology of Asian small-clawed otter Aonyx cinereus (Illiger, 1815): a review. IUCN Otter Spec Group Bull 28(2):63\u201375",
+        "journal-title": "IUCN Otter Spec Group Bull"
+      },
+      {
+        "key": "1126_CR18",
+        "author": "H Kruuk",
+        "year": "2006",
+        "unstructured": "Kruuk H (2006) Otters: ecology, behaviour and conservation. Oxford University Press, Oxford",
+        "volume-title": "Otters: ecology, behaviour and conservation",
+        "DOI": "10.1093\/acprof:oso\/9780198565871.001.0001",
+        "doi-asserted-by": "crossref"
+      },
+      {
+        "issue": "1",
+        "key": "1126_CR19",
+        "doi-asserted-by": "crossref",
+        "first-page": "115",
+        "DOI": "10.1016\/0006-3207(94)90334-4",
+        "volume": "69",
+        "author": "H Kruuk",
+        "year": "1994",
+        "unstructured": "Kruuk H, Kanchanasaka B, O\u2019sullivan S, Wanghongsa S (1994) Niche separation in three sympatric otters Lutra perspicillata, L. lutra and Aonyx cinerea in Huai Kha Khaeng, Thailand. Biol Cons 69(1):115\u2013120",
+        "journal-title": "Biol Cons"
+      },
+      {
+        "issue": "3",
+        "key": "1126_CR20",
+        "doi-asserted-by": "crossref",
+        "first-page": "275",
+        "DOI": "10.1007\/s00114-013-1022-9",
+        "volume": "100",
+        "author": "A Lemasson",
+        "year": "2013",
+        "unstructured": "Lemasson A, Mikus M-A, Blois-Heulin C, Lod\u00e9 T (2013) Social partner discrimination based on sounds and scents in Asian small-clawed otters (Aonyx cinereus). Naturwissenschaften 100(3):275\u2013279",
+        "journal-title": "Naturwissenschaften"
+      },
+      {
+        "key": "1126_CR21",
+        "doi-asserted-by": "crossref",
+        "first-page": "15021",
+        "DOI": "10.1038\/srep15021",
+        "volume": "5",
+        "author": "JJ Massen",
+        "year": "2015",
+        "unstructured": "Massen JJ, Ritter C, Bugnyar T (2015) Tolerance and reward equity predict cooperation in ravens (Corvus corax). Sci Rep 5:15021",
+        "journal-title": "Sci Rep"
+      },
+      {
+        "issue": "5765",
+        "key": "1126_CR22",
+        "doi-asserted-by": "crossref",
+        "first-page": "1297",
+        "DOI": "10.1126\/science.1123007",
+        "volume": "311",
+        "author": "AP Melis",
+        "year": "2006",
+        "unstructured": "Melis AP, Hare B, Tomasello M (2006a) Chimpanzees recruit the best collaborators. Science 311(5765):1297\u20131300",
+        "journal-title": "Science"
+      },
+      {
+        "issue": "2",
+        "key": "1126_CR23",
+        "doi-asserted-by": "crossref",
+        "first-page": "275",
+        "DOI": "10.1016\/j.anbehav.2005.09.018",
+        "volume": "72",
+        "author": "AP Melis",
+        "year": "2006",
+        "unstructured": "Melis AP, Hare B, Tomasello M (2006b) Engineering cooperation in chimpanzees: tolerance constraints on cooperation. Anim Behav 72(2):275\u2013286",
+        "journal-title": "Anim Behav"
+      },
+      {
+        "issue": "1",
+        "key": "1126_CR24",
+        "doi-asserted-by": "publisher",
+        "first-page": "133",
+        "DOI": "10.1007\/s10071-015-0919-4",
+        "volume": "19",
+        "author": "S Molesti",
+        "year": "2016",
+        "unstructured": "Molesti S, Majolo B (2016) Cooperation in wild Barbary macaques: factors affecting free partner choice. Anim Cogn 19(1):133\u2013146. doi:\n                        10.1007\/s10071-015-0919-4",
+        "journal-title": "Anim Cogn"
+      },
+      {
+        "key": "1126_CR25",
+        "doi-asserted-by": "crossref",
+        "first-page": "243",
+        "DOI": "10.1016\/j.anbehav.2013.12.005",
+        "volume": "88",
+        "author": "CA Mumm",
+        "year": "2014",
+        "unstructured": "Mumm CA, Urrutia MC, Kn\u00f6rnschild M (2014) Vocal individuality in cohesion calls of giant otters, Pteronura brasiliensis. Anim Behav 88:243\u2013252",
+        "journal-title": "Anim Behav"
+      },
+      {
+        "issue": "2",
+        "key": "1126_CR26",
+        "doi-asserted-by": "crossref",
+        "first-page": "445",
+        "DOI": "10.1007\/s10071-013-0676-1",
+        "volume": "17",
+        "author": "L Ostoji\u0107",
+        "year": "2014",
+        "unstructured": "Ostoji\u0107 L, Clayton NS (2014) Behavioural coordination of dogs in a cooperative problem-solving task with a conspecific and a human partner. Anim Cogn 17(2):445\u2013459",
+        "journal-title": "Anim Cogn"
+      },
+      {
+        "issue": "1",
+        "key": "1126_CR27",
+        "first-page": "105",
+        "volume": "26",
+        "author": "BM Perdue",
+        "year": "2013",
+        "unstructured": "Perdue BM, Snyder RJ, Maple TL (2013) Cognitive research in Asian small-clawed otters. Int J Comp Psychol 26(1):105\u2013113",
+        "journal-title": "Int J Comp Psychol"
+      },
+      {
+        "issue": "4",
+        "key": "1126_CR28",
+        "doi-asserted-by": "publisher",
+        "first-page": "545",
+        "DOI": "10.1007\/s10071-011-0389-2",
+        "volume": "14",
+        "author": "F P\u00e9ron",
+        "year": "2011",
+        "unstructured": "P\u00e9ron F, Rat-Fischer L, Lalot M, Nagle L, Bovet D (2011) Cooperative problem solving in African grey parrots (Psittacus erithacus). Anim Cogn 14(4):545\u2013553. doi:\n                        10.1007\/s10071-011-0389-2",
+        "journal-title": "Anim Cogn"
+      },
+      {
+        "issue": "12",
+        "key": "1126_CR29",
+        "doi-asserted-by": "publisher",
+        "first-page": "5116",
+        "DOI": "10.1073\/pnas.1101765108",
+        "volume": "108",
+        "author": "JM Plotnik",
+        "year": "2011",
+        "unstructured": "Plotnik JM, Lair R, Suphachoksahakun W, de Waal FBM (2011) Elephants know when they need a helping trunk in a cooperative task. Proc Natl Acad Sci USA 108(12):5116\u20135121. doi:\n                        10.1073\/pnas.1101765108",
+        "journal-title": "Proc Natl Acad Sci USA"
+      },
+      {
+        "key": "1126_CR30",
+        "author": "R Core Team",
+        "year": "2012",
+        "unstructured": "R Core Team (2012) R: a language and environment for statistical computing. R Foundation for Statistical Computing, Vienna",
+        "volume-title": "R: a language and environment for statistical computing"
+      },
+      {
+        "issue": "3",
+        "key": "1126_CR31",
+        "first-page": "1",
+        "volume": "54",
+        "author": "FCW Rosas",
+        "year": "2009",
+        "unstructured": "Rosas FCW, Cabral MMM, De Mattos GE, Silva RE (2009) Parental and alloparental care of giant otters (Pteronura brasiliensis) (Carnivora, Mustelidae) in Balbina hydroelectric lake, Amazonas, Brazil. Sociobiology 54(3):1\u20136",
+        "journal-title": "Sociobiology"
+      },
+      {
+        "issue": "3",
+        "key": "1126_CR32",
+        "doi-asserted-by": "crossref",
+        "first-page": "545",
+        "DOI": "10.1007\/s10071-009-0305-1",
+        "volume": "13",
+        "author": "C Scheid",
+        "year": "2010",
+        "unstructured": "Scheid C, No\u00eb R (2010) The performance of rooks in a cooperative task depends on their temperament. Anim Cogn 13(3):545\u2013553",
+        "journal-title": "Anim Cogn"
+      },
+      {
+        "key": "1126_CR33",
+        "author": "R Schwing",
+        "year": "2016",
+        "unstructured": "Schwing R, Jocteur E, Wein A, No\u00eb R, Massen JJM (2016) Kea cooperate better with sharing affiliates. Anim Cogn. doi:\n                        10.1007\/s10071-016-1017-y",
+        "journal-title": "Anim Cogn",
+        "DOI": "10.1007\/s10071-016-1017-y",
+        "doi-asserted-by": "publisher"
+      },
+      {
+        "issue": "1641",
+        "key": "1126_CR34",
+        "doi-asserted-by": "crossref",
+        "first-page": "1421",
+        "DOI": "10.1098\/rspb.2008.0111",
+        "volume": "275",
+        "author": "AM Seed",
+        "year": "2008",
+        "unstructured": "Seed AM, Clayton NS, Emery NJ (2008) Cooperative problem solving in rooks (Corvus frugilegus). Proc R Soc Lond B Biol Sci 275(1641):1421\u20131429",
+        "journal-title": "Proc R Soc Lond B Biol Sci"
+      },
+      {
+        "issue": "1\u20133",
+        "key": "1126_CR35",
+        "doi-asserted-by": "crossref",
+        "first-page": "151",
+        "DOI": "10.1007\/BF00005663",
+        "volume": "285",
+        "author": "N Sivasothi",
+        "year": "1994",
+        "unstructured": "Sivasothi N, Nor BHM (1994) A review of otters (Carnivora: Mustelidae: Lutrinae) in Malaysia and Singapore. Hydrobiologia 285(1\u20133):151\u2013170",
+        "journal-title": "Hydrobiologia"
+      },
+      {
+        "key": "1126_CR36",
+        "author": "E Staib",
+        "year": "2002",
+        "unstructured": "Staib E (2002) \u00d6ko-ethologie von riesenottern (Pteronura brasiliensis) in Peru. Shaker, Maastricht",
+        "volume-title": "\u00d6ko-ethologie von riesenottern (Pteronura brasiliensis) in Peru"
+      }
+    ],
+    "container-title": [
+      "Animal Cognition"
+    ],
+    "original-title": [],
+    "language": "en",
+    "link": [
+      {
+        "URL": "http:\/\/link.springer.com\/article\/10.1007\/s10071-017-1126-2\/fulltext.html",
+        "content-type": "text\/html",
+        "content-version": "vor",
+        "intended-application": "text-mining"
+      },
+      {
+        "URL": "http:\/\/link.springer.com\/content\/pdf\/10.1007\/s10071-017-1126-2.pdf",
+        "content-type": "application\/pdf",
+        "content-version": "vor",
+        "intended-application": "text-mining"
+      },
+      {
+        "URL": "http:\/\/link.springer.com\/content\/pdf\/10.1007\/s10071-017-1126-2.pdf",
+        "content-type": "application\/pdf",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "deposited": {
+      "date-parts": [
+        [
+          2017,
+          10,
+          13
+        ]
+      ],
+      "date-time": "2017-10-13T13:01:48Z",
+      "timestamp": 1507899708000
+    },
+    "score": 1.0,
+    "subtitle": [
+      "Example Subtitle"
+    ],
+    "short-title": [
+      "Example Short Title"
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2017,
+          8,
+          24
+        ]
+      ]
+    },
+    "references-count": 36,
+    "journal-issue": {
+      "published-print": {
+        "date-parts": [
+          [
+            2017,
+            11
+          ]
+        ]
+      },
+      "issue": "6"
+    },
+    "alternative-id": [
+      "1126"
+    ],
+    "URL": "http:\/\/dx.doi.org\/10.1007\/s10071-017-1126-2",
+    "relation": {
+      "cites": []
+    },
+    "ISSN": [
+      "1435-9448",
+      "1435-9456"
+    ],
+    "issn-type": [
+      {
+        "value": "1435-9448",
+        "type": "print"
+      },
+      {
+        "value": "1435-9456",
+        "type": "electronic"
+      }
+    ]
+  }
+}

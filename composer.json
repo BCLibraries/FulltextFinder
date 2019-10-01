@@ -33,5 +33,10 @@
     "psr-4": {
       "BCLib\\FulltextFinder\\": "src/"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "BCLib\\FulltextFinder\\Tests\\": "tests/"
+    }
   }
 }
