@@ -46,11 +46,19 @@ class CrossrefClient
         }
     }
 
+    /**
+     * @param string $search_string
+     * @return ResponseInterface
+     */
     public function search(string $search_string): ResponseInterface
     {
-        $search_string = urlencode($search_string);
-        $uri = "https://api.crossref.org/works/#?query.bibliographic=$search_string";
-        return $this->http_client->request('GET', $uri, $this->request_options);
+        try {
+            $search_string = urlencode($search_string);
+            $uri = "https://api.crossref.org/works/#?query.bibliographic=$search_string";
+            return $this->http_client->request('GET', $uri, $this->request_options);
+        } catch (TransportExceptionInterface $e) {
+            throw new CrossrefLookupException("Error fetching from Crossref <$uri>", $e->getCode(), $e);
+        }
     }
 
     /**
@@ -58,7 +66,7 @@ class CrossrefClient
      * @return CrossrefResponse
      * @throws CrossrefLookupException
      */
-    public function parse(ResponseInterface $response)
+    public function parse(ResponseInterface $response): CrossrefResponse
     {
         try {
             if ($response->getStatusCode() === 200) {
