@@ -2,8 +2,8 @@
 
 namespace BCLib\FulltextFinder;
 
+use BCLib\FulltextFinder\Crossref\CrossrefClient;
 use BCLib\FulltextFinder\LibKey\LibKeyClient;
-use BCLib\FulltextFinder\LibKey\LibKeyParser;
 use Symfony\Component\HttpClient\CurlHttpClient;
 
 class FullTextFinder
@@ -15,41 +15,41 @@ class FullTextFinder
     ];
 
     /**
-     * @var LibKeyClient
+     * @var FullTextService
      */
-    private $libkey;
+    private $fulltext_service;
 
-    public static function build(string $libkey_library_id, string $libkey_apikey)
-    {
-        $libkey_client = new LibKeyClient($libkey_library_id, $libkey_apikey, new CurlHttpClient());
-        return new FullTextFinder($libkey_client);
+    public static function build(
+        string $libkey_library_id,
+        string $libkey_apikey,
+        string $crossref_client_user_agent
+    ): FullTextFinder {
+        $http = new CurlHttpClient();
+
+        $libkey = new LibKeyClient($libkey_library_id, $libkey_apikey, $http);
+        $crossref = new CrossrefClient($crossref_client_user_agent, $http);
+
+        $full_text_service = new FullTextService($crossref, $libkey);
+
+        return new FullTextFinder($full_text_service);
     }
 
-    public function __construct(LibKeyClient $libkey)
+    public function __construct(FullTextService $fulltext_service)
     {
-        $this->libkey = $libkey;
+        $this->fulltext_service = $fulltext_service;
     }
 
     /**
      * Find the full text referenced in a search string
      *
      * @param string $search_string
-     * @return LibKey\LibKeyResponse|null
-     * @throws \Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface
-     * @throws \Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface
-     * @throws \Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface
-     * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
+     * @return FinderResponse|null
      */
-    public function find(string $search_string): ?LibKey\LibKeyResponse
+    public function find(string $search_string): ?FinderResponse
     {
         if ($doi = $this->getDOI($search_string)) {
-            $api_response = $this->libkey->request($doi);
-
-            if ($api_response->getStatusCode() === 200) {
-                return LibKeyParser::parse($api_response->getContent());
-            }
+            return $this->fulltext_service->findByDOI($doi);
         }
-
         return null;
     }
 
@@ -72,5 +72,6 @@ class FullTextFinder
         }
         return null;
     }
+
 
 }

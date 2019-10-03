@@ -20,15 +20,18 @@ use BCLib\FulltextFinder\FullTextFinder;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$citation = 'cooperative problem solving in giant otters doi:10.1007/s10071-017-1126-2';
-$libkey_library_id = '###';
-$libkey_apikey ='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx';
+# A unique User-Agent header string to send to Crossref.
+$user_agent = 'BCBento/0.1 (https://library.bc.edu/search; mailto:benjamin.florin@bc.edu)';
 
+# LibKey API identifiers.
+$xxxxxx_xxxxxx = 'xxxxxxxx-xxx-xxxx-xxxx-xxxxxxxxxxxx';
+$libkey_id = 'xxx';
 
-$finder = FullTextFinder::build($libkey_library_id, $libkey_apikey);
-$libkey_response = $finder->find($citation);
+$finder = FullTextFinder::build($libkey_id, $libkey_apikey, $user_agent);
+$response = $finder->find('The DOI we are looking for is 10.1371/journal.pone.0193984');
 
-echo "Full text PDF at {$libkey_response->full_text_file}\n";
+echo $response->getTitle() . "\n";
+echo "\t" . $response->getFullText() . "\n";
 ```
 
 # Running tests

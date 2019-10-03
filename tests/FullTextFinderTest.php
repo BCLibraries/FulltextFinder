@@ -7,9 +7,19 @@ class FullTextFinderTest extends \PHPUnit\Framework\TestCase
     protected static $citations;
 
     /**
+     * @var \BCLib\FulltextFinder\FullTextService|\Mockery\LegacyMockInterface|\Mockery\MockInterface
+     */
+    public $fulltext_service;
+
+    /**
      * @var \BCLib\FulltextFinder\LibKey\LibKeyClient|\Mockery\LegacyMockInterface|\Mockery\MockInterface
      */
-    public $libkey;
+    private $libkey;
+
+    /**
+     * @var \BCLib\FulltextFinder\Crossref\CrossrefClient|\Mockery\LegacyMockInterface|\Mockery\MockInterface
+     */
+    private $crossref;
 
     /**
      * @var FullTextFinder
@@ -18,8 +28,10 @@ class FullTextFinderTest extends \PHPUnit\Framework\TestCase
 
     public function setUp()
     {
+        $this->fulltext_service = Mockery::mock(\BCLib\FulltextFinder\FullTextService::class);
         $this->libkey = Mockery::mock(\BCLib\FulltextFinder\LibKey\LibKeyClient::class);
-        $this->finder = new BCLib\FulltextFinder\FullTextFinder($this->libkey);
+        $this->crossref = Mockery::mock(\BCLib\FulltextFinder\Crossref\CrossrefClient::class);
+        $this->finder = new BCLib\FulltextFinder\FullTextFinder($this->fulltext_service);
     }
 
     public function tearDown()
@@ -49,30 +61,13 @@ class FullTextFinderTest extends \PHPUnit\Framework\TestCase
         }
     }
 
-    public function testFindWithDOISearchesLibKey()
+    public function testDOIInTextTriggersFindByDOI()
     {
-        // Searches containing DOIs should send a request to LibKey.
-        $http_response_mock = Mockery::mock(\Symfony\Contracts\HttpClient\ResponseInterface::class);
-        $http_response_mock->expects()->getStatusCode()->andReturns('404');
-        $this->libkey->expects()->request('10.1002/tox.20155')->andReturns($http_response_mock);
-
-        $this->libkey->shouldNotReceive('request');
-
+        $this->fulltext_service->expects()->findByDOI('10.1002/tox.20155');
         $this->finder->find('The DOI we are looking for is 10.1002/tox.20155');
 
         // Success if we haven't thrown an exception.
         $this->assertTrue(true);
-    }
-
-    public function testFindWithoutDOIDoesNotSearchLibKey()
-    {
-        $this->libkey->shouldNotReceive('rabbot');
-
-        $this->finder->find('This text has no DOI');
-
-        // Success if we haven't thrown an exception.
-        $this->assertTrue(true);
-
     }
 
     private static function citationContainsDoi($citation): bool
