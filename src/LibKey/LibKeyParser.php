@@ -20,20 +20,19 @@ class LibKeyParser
 
         $response = new LibKeyResponse();
 
-        $response->id = $data->id;
-        $response->type = $data->type;
-        $response->title = $data->title;
-        $response->date = $data->date;
-        $response->authors = $data->authors;
-        $response->in_press = $data->inPress;
-        $response->full_text_file = $data->fullTextFile;
-        $response->content_location = $data->contentLocation;
-        $response->available_through_browzine = $data->availableThroughBrowzine;
-        $response->start_page = $data->startPage;
-        $response->end_page = $data->endPage;
-        $response->browzine_web_link = $data->browzineWebLink;
-
-        $response->journals = array_map(self::class . '::parseJournal', $json->included);
+        $response->setId($data->id)
+            ->setType($data->type)
+            ->setTitle($data->title)
+            ->setDate($data->date)
+            ->setAuthors($data->authors)
+            ->setInPress($data->inPress)
+            ->setFullTextFile($data->fullTextFile)
+            ->setContentLocation($data->contentLocation)
+            ->setAvailableThroughBrowzine($data->availableThroughBrowzine)
+            ->setStartPage($data->startPage)
+            ->setEndPage($data->endPage)
+            ->setBrowzineWebLink($data->browzineWebLink)
+            ->setJournals(array_map(self::class . '::parseJournal', $json->included));
 
         return $response;
     }
@@ -47,15 +46,13 @@ class LibKeyParser
     private static function parseJournal(\stdClass $json): Journal
     {
         $journal = new Journal();
-        $journal->id = $json->id;
-        $journal->type = $json->type;
-        $journal->title = $json->title;
-        $journal->issn = $json->issn;
-        $journal->sjr_value = $json->sjrValue;
-        $journal->cover_image_url = $json->coverImageUrl;
-        $journal->browzine_enabled = $json->browzineEnabled;
-        $journal->browzine_web_link = $json->browzineWebLink;
-
-        return $journal;
+        return $journal->setId($json->id)
+            ->setType($json->type)
+            ->setTitle($json->title)
+            ->setIssn($json->issn)
+            ->setSJRValue($json->sjrValue)
+            ->setCoverImageUrl($json->coverImageUrl)
+            ->setBrowzineEnabled($json->browzineEnabled)
+            ->setBrowzineWebLink($json->browzineWebLink);
     }
 }

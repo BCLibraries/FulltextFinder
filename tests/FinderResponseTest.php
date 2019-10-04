@@ -33,17 +33,17 @@ class FinderResponseTest extends TestCase
     public function setUp()
     {
         $this->crossref = new CrossrefResponse();
-        $this->crossref->title = 'Title of article';
-        $this->crossref->volume = '12';
-        $this->crossref->issue = '4';
+        $this->crossref->setTitles(['Title of article']);
+        $this->crossref->setVolume('12');
+        $this->crossref->setIssue('4');
 
         $this->author_1 = new Author();
-        $this->author_1->given = 'Benjamin';
-        $this->author_1->family = 'Florin';
-        $this->crossref->author = [$this->author_1];
+        $this->author_1->setGivenName('Benjamin')
+            ->setFamilyName('Florin');
+        $this->crossref->setAuthors([$this->author_1]);
 
-        $this->libkey = \Mockery::mock(LibKeyResponse::class);
-        $this->libkey->full_text_file = 'https://link.to/full/text.pdf';
+        $this->libkey = new LibKeyResponse();
+        $this->libkey->setFullTextFile('https://link.to/full/text.pdf');
 
         $this->response = new FinderResponse($this->crossref, $this->libkey);
     }

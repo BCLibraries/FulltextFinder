@@ -23,9 +23,19 @@ class FinderResponse
         $this->libkey = $libkey;
     }
 
+    public function getCrossrefData(): CrossrefResponse
+    {
+        return $this->crossref;
+    }
+
+    public function getLibKeyData(): LibKeyResponse
+    {
+        return $this->libkey;
+    }
+
     public function getTitle(): ?string
     {
-        return $this->crossref->title[0] ?? null;
+        return $this->crossref->getTitles()[0] ?? null;
     }
 
     /**
@@ -33,21 +43,21 @@ class FinderResponse
      */
     public function getAuthors(): array
     {
-        return $this->crossref->author;
+        return $this->crossref->getAuthors();
     }
 
     public function getFullText(): ?string
     {
-        return $this->libkey->full_text_file;
+        return $this->libkey->getFullTextFile();
     }
 
     public function getVolume(): ?string
     {
-        return $this->crossref->volume;
+        return $this->crossref->getVolume();
     }
 
     public function getIssue(): ?string
     {
-        return $this->crossref->issue;
+        return $this->crossref->getIssue();
     }
 }

@@ -28,34 +28,33 @@ class LibKeyParserTest extends TestCase
         $response = LibKeyParser::parse($this->json);
 
         // Data
-        $this->assertEquals(151576387, $response->id);
-        $this->assertEquals('articles', $response->type);
+        $this->assertEquals(151576387, $response->getId());
+        $this->assertEquals('articles', $response->getType());
         $this->assertEquals('Cooperative problem solving in giant otters (Pteronura brasiliensis) and Asian small-clawed otters (Aonyx cinerea)',
-            $response->title);
-        $this->assertEquals('2017-08-24', $response->date);
-        $this->assertEquals('Schmelz, Martin; Duguid, Shona; Bohn, Manuel; Völter, Christoph J.', $response->authors);
-        $this->assertFalse($response->in_press);
+            $response->getTitle());
+        $this->assertEquals('2017-08-24', $response->getDate());
+        $this->assertEquals('Schmelz, Martin; Duguid, Shona; Bohn, Manuel; Völter, Christoph J.', $response->getAuthors());
+        $this->assertFalse($response->isInPress());
         $this->assertEquals('https://libkey.io/libraries/431/articles/151576387/full-text-file?utm_source=api_536',
-            $response->full_text_file);
+            $response->getFullTextFile());
         $this->assertEquals('https://libkey.io/libraries/431/articles/151576387',
-            $response->content_location);
-        $this->assertTrue($response->available_through_browzine);
-        $this->assertEquals('1107', $response->start_page);
-        $this->assertEquals('1114', $response->end_page);
+            $response->getContentLocation());
+        $this->assertTrue($response->isAvailableThroughBrowzine());
+        $this->assertEquals('1107', $response->getStartPage());
+        $this->assertEquals('1114', $response->getEndPage());
         $this->assertEquals('https://browzine.com/libraries/431/journals/2512/issues/103325497?showArticleInContext=doi:10.1007%2Fs10071-017-1126-2&utm_source=api_536',
-            $response->browzine_web_link);
+            $response->getBrowzineWebLink());
 
         // Journal
-        $journal = $response->journals[0];
-        $this->assertEquals(2512, $journal->id);
-        $this->assertEquals('journals', $journal->type);
-        $this->assertEquals('Animal Cognition', $journal->title);
-        $this->assertEquals('14359448', $journal->issn);
-        $this->assertEquals(1.233, $journal->sjr_value);
-        $this->assertEquals('https://assets.thirdiron.com/images/covers/1435-9448.png', $journal->cover_image_url);
-        $this->assertTrue($journal->browzine_enabled);
+        $journal = $response->getJournals()[0];
+        $this->assertEquals(2512, $journal->getId());
+        $this->assertEquals('journals', $journal->getType());
+        $this->assertEquals('Animal Cognition', $journal->getTitle());
+        $this->assertEquals('14359448', $journal->getISSN());
+        $this->assertEquals(1.233, $journal->getSJRValue());
+        $this->assertEquals('https://assets.thirdiron.com/images/covers/1435-9448.png', $journal->getCoverImageUrl());
+        $this->assertTrue($journal->isBrowzineEnabled());
         $this->assertEquals('https://browzine.com/libraries/431/journals/2512?utm_source=api_536',
-            $journal->browzine_web_link);
-
+            $journal->getBrowzineWebLink());
     }
 }
