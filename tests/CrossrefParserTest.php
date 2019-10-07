@@ -41,7 +41,8 @@ class CrossrefParserTest extends TestCase
         $this->assertEquals('6', $response->getIssue());
 
         $this->assertEquals(1.0, $response->getScore());
-        $this->assertEquals([[2017, 11]], $response->getPublishedPrintDate());
+        $this->assertEquals([2017, 11], $response->getPublishedPrintDate());
+        $this->assertEquals([2017, 8, 24], $response->getPublishedOnlineDate());
 
         $this->assertEquals(['1126'], $response->getAlternativeIds());
     }
@@ -80,7 +81,7 @@ class CrossrefParserTest extends TestCase
         $this->assertEquals('J Stat Softw', $references[0]->getJournalTitle());
 
         $this->assertEquals('An introduction to generalized linear models', $references[5]->getVolumeTitle());
-        $this->assertEquals('3',$references[5]->getEdition());
+        $this->assertEquals('3', $references[5]->getEdition());
     }
 
 }

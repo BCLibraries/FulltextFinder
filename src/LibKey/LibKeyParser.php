@@ -31,8 +31,11 @@ class LibKeyParser
             ->setAvailableThroughBrowzine($data->availableThroughBrowzine)
             ->setStartPage($data->startPage)
             ->setEndPage($data->endPage)
-            ->setBrowzineWebLink($data->browzineWebLink)
-            ->setJournals(array_map(self::class . '::parseJournal', $json->included));
+            ->setBrowzineWebLink($data->browzineWebLink);
+
+        if (isset($json->included)) {
+            $response->setJournals(array_map(self::class . '::parseJournal', $json->included));
+        }
 
         return $response;
     }

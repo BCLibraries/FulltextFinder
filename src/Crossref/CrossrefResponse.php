@@ -46,6 +46,9 @@ class CrossrefResponse
     /** @var int[] */
     private $published_print_date = [];
 
+    /** @var int[] */
+    private $published_online_date = [];
+
     /** @var string[] */
     private $alternative_ids = [];
 
@@ -286,6 +289,24 @@ class CrossrefResponse
     public function setPublishedPrintDate(?array $published_print_date): CrossrefResponse
     {
         $this->published_print_date = $published_print_date;
+        return $this;
+    }
+
+    /**
+     * @return int[]
+     */
+    public function getPublishedOnlineDate(): array
+    {
+        return $this->published_online_date;
+    }
+
+    /**
+     * @param int[] $published_online_date
+     * @return CrossrefResponse
+     */
+    public function setPublishedOnlineDate(array $published_online_date): CrossrefResponse
+    {
+        $this->published_online_date = $published_online_date;
         return $this;
     }
 

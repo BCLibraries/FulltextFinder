@@ -10,10 +10,12 @@ class CrossrefParser
         $message = $json->message;
 
         $response = new CrossrefResponse();
+
+        // Crossref data is sparse and fields are often not populated, so null-check everything.
         $response->setDOI($message->DOI ?? null)
             ->setTitles($message->title ?? [])
             ->setSubtitles($message->subtitle ?? [])
-            ->setShortTitles($message->{'short-title'} ?? '')
+            ->setShortTitles($message->{'short-title'} ?? [])
             ->setType($message->type ?? null)
             ->setContainerTitles($message->{'container-title'} ?? [])
             ->setShortContainerTitles($message->{'short-container-title'} ?? [])
@@ -21,13 +23,24 @@ class CrossrefParser
             ->setVolume($message->volume ?? null)
             ->setIssue($message->issue ?? null)
             ->setScore($message->score ?? null)
-            ->setAlternativeIds($message->{'alternative-id'} ?? [])
-            ->setAuthors(array_map(self::class . '::parseAuthor', $message->author))
-            ->setReferences(array_map(self::class . '::parseReference', $message->reference));
+            ->setAlternativeIds($message->{'alternative-id'} ?? []);
+
+        if (isset($message->author)) {
+            $response->setAuthors(array_map(self::class . '::parseAuthor', $message->author));
+        }
+
+        if (isset($message->reference)) {
+            $response->setReferences(array_map(self::class . '::parseReference', $message->reference));
+        }
 
         if (isset($message->{'journal-issue'})) {
-            $date = $message->{'journal-issue'}->{'published-print'}->{'date-parts'} ?? null;
-            $response->setPublishedPrintDate($date);
+            $date = $message->{'journal-issue'}->{'published-print'}->{'date-parts'} ?? [];
+            $response->setPublishedPrintDate($date[0]);
+        }
+
+        if (isset($message->{'published-online'})) {
+            $date = $message->{'published-online'}->{'date-parts'} ?? [];
+            $response->setPublishedOnlineDate($date[0]);
         }
 
         return $response;
