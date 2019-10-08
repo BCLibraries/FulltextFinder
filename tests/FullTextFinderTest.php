@@ -12,7 +12,7 @@ class FullTextFinderTest extends \PHPUnit\Framework\TestCase
     public $fulltext_service;
 
     /**
-     * @var \BCLib\FulltextFinder\LibKey\LibKeyClient|\Mockery\LegacyMockInterface|\Mockery\MockInterface
+     * @var \BCLib\LibKeyClient\LibKeyClient|\Mockery\LegacyMockInterface|\Mockery\MockInterface
      */
     private $libkey;
 
@@ -29,7 +29,7 @@ class FullTextFinderTest extends \PHPUnit\Framework\TestCase
     public function setUp()
     {
         $this->fulltext_service = Mockery::mock(\BCLib\FulltextFinder\FullTextService::class);
-        $this->libkey = Mockery::mock(\BCLib\FulltextFinder\LibKey\LibKeyClient::class);
+        $this->libkey = Mockery::mock(\BCLib\LibKeyClient\LibKeyClient::class);
         $this->crossref = Mockery::mock(\BCLib\FulltextFinder\Crossref\CrossrefClient::class);
         $this->finder = new BCLib\FulltextFinder\FullTextFinder($this->fulltext_service);
     }

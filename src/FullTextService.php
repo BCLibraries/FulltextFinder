@@ -4,8 +4,8 @@ namespace BCLib\FulltextFinder;
 
 use BCLib\FulltextFinder\Crossref\CrossrefClient;
 use BCLib\FulltextFinder\Crossref\CrossrefLookupException;
-use BCLib\FulltextFinder\LibKey\LibKeyClient;
-use BCLib\FulltextFinder\LibKey\LibKeyLookupException;
+use BCLib\LibKeyClient\LibKeyClient;
+use BCLib\LibKeyClient\LibKeyLookupException;
 
 class FullTextService
 {

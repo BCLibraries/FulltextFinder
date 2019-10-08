@@ -5,7 +5,7 @@ namespace BCLib\FulltextFinder\Tests;
 use BCLib\FulltextFinder\Crossref\Author;
 use BCLib\FulltextFinder\Crossref\CrossrefResponse;
 use BCLib\FulltextFinder\FinderResponse;
-use BCLib\FulltextFinder\LibKey\LibKeyResponse;
+use BCLib\LibKeyClient\LibKeyResponse;
 use PHPUnit\Framework\TestCase;
 
 class FinderResponseTest extends TestCase

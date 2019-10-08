@@ -3,7 +3,7 @@
 namespace BCLib\FulltextFinder;
 
 use BCLib\FulltextFinder\Crossref\CrossrefClient;
-use BCLib\FulltextFinder\LibKey\LibKeyClient;
+use BCLib\LibKeyClient\LibKeyClient;
 use Symfony\Component\HttpClient\CurlHttpClient;
 
 class FullTextFinder

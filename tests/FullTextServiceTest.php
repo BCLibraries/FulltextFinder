@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 class FullTextServiceTest extends TestCase
 {
     /**
-     * @var \BCLib\FulltextFinder\LibKey\LibKeyClient|\Mockery\LegacyMockInterface|\Mockery\MockInterface
+     * @var \BCLib\LibKeyClient\LibKeyClient|\Mockery\LegacyMockInterface|\Mockery\MockInterface
      */
     private $libkey;
 
@@ -19,7 +19,7 @@ class FullTextServiceTest extends TestCase
 
     public function setUp()
     {
-        $this->libkey = Mockery::mock(\BCLib\FulltextFinder\LibKey\LibKeyClient::class);
+        $this->libkey = Mockery::mock(\BCLib\LibKeyClient\LibKeyClient::class);
         $this->crossref = Mockery::mock(\BCLib\FulltextFinder\Crossref\CrossrefClient::class);
     }
 
