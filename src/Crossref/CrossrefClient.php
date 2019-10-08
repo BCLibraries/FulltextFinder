@@ -26,7 +26,8 @@ class CrossrefClient
         $this->http_client = $http_client;
         $this->request_options = [
             'headers' => [
-                'User-Agent' => $user_agent
+                'User-Agent' => $user_agent,
+                'Accept' => 'application/json'
             ]
         ];
     }
