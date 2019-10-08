@@ -5,6 +5,8 @@ namespace BCLib\Tests;
 use BCLib\FulltextFinder\Crossref\CrossrefClient;
 use PHPUnit\Framework\TestCase;
 
+require_once __DIR__.'/FullTextFinderMockHTTPClient.php';
+
 class CrossrefClientTest extends TestCase
 {
     /**
@@ -18,13 +20,13 @@ class CrossrefClientTest extends TestCase
     protected $user_agent;
 
     /**
-     * @var MockHTTPClient
+     * @var FullTextFinderMockHTTPClient
      */
     protected $http_client;
 
     public function setUp()
     {
-        $this->http_client = new MockHttpClient();
+        $this->http_client = new FullTextFinderMockHTTPClient();
         $this->user_agent = 'Searcher/0.1 (https://library.university.edu/search; mailto:admin@university.edu)';
         $this->crossref_client = new CrossrefClient($this->user_agent, $this->http_client);
     }

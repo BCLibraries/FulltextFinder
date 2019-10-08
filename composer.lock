@@ -4,8 +4,55 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7dd22c484956689bfcd163767799b6a9",
+    "content-hash": "21bf5465fbf4d7ca4117ff15377ebf37",
     "packages": [
+        {
+            "name": "bclibraries/libkey-client",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/BCLibraries/libkey-client.git",
+                "reference": "5b84a2b79c692cce64554deca93aa08ec62dc99c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/BCLibraries/libkey-client/zipball/5b84a2b79c692cce64554deca93aa08ec62dc99c",
+                "reference": "5b84a2b79c692cce64554deca93aa08ec62dc99c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "nyholm/psr7": "^1.0",
+                "php": ">=7.1.26",
+                "psr/http-client": "^1.0",
+                "psr/http-factory": "^1.0",
+                "symfony/http-client": "^4.3"
+            },
+            "require-dev": {
+                "codedungeon/phpunit-result-printer": "0.25.1",
+                "mockery/mockery": "^1.2",
+                "php-http/mock-client": "^1.3",
+                "phpunit/phpunit": "^7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "BCLib\\LibKeyClient\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ben Florin",
+                    "email": "benjamin.florin@bc.edu"
+                }
+            ],
+            "description": "PHP client for LibKey API from Third Iron",
+            "time": "2019-10-07T20:23:33+00:00"
+        },
         {
             "name": "nyholm/psr7",
             "version": "1.2.1",

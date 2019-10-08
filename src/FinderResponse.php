@@ -3,7 +3,7 @@
 namespace BCLib\FulltextFinder;
 
 use BCLib\FulltextFinder\Crossref\CrossrefResponse;
-use BCLib\FulltextFinder\LibKey\LibKeyResponse;
+use BCLib\LibKeyClient\LibKeyResponse;
 
 class FinderResponse
 {

@@ -4,7 +4,7 @@ namespace BCLib\Tests;
 
 use Symfony\Contracts\HttpClient\ResponseInterface;
 
-class MockHTTPClient extends \Symfony\Component\HttpClient\MockHttpClient
+class FullTextFinderMockHTTPClient extends \Symfony\Component\HttpClient\MockHttpClient
 {
     public $last_method;
     public $last_uri;

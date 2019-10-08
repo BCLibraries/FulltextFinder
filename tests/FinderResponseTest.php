@@ -42,7 +42,7 @@ class FinderResponseTest extends TestCase
             ->setFamilyName('Florin');
         $this->crossref->setAuthors([$this->author_1]);
 
-        $this->libkey = new LibKeyResponse();
+        $this->libkey = new \BCLib\LibKeyClient\LibKeyResponse();
         $this->libkey->setFullTextFile('https://link.to/full/text.pdf');
 
         $this->response = new FinderResponse($this->crossref, $this->libkey);
