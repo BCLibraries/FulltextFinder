@@ -22,6 +22,7 @@ class CrossrefParser
             ->setPublisher($message->publisher ?? null)
             ->setVolume($message->volume ?? null)
             ->setIssue($message->issue ?? null)
+            ->setPage($message->page?? null)
             ->setScore($message->score ?? null)
             ->setAlternativeIds($message->{'alternative-id'} ?? []);
 
