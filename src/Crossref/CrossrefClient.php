@@ -22,12 +22,17 @@ class CrossrefClient
     private $http_client;
 
     /**
+     * @var int
+     */
+    private $min_score;
+
+    /**
      * CrossrefClient constructor.
      *
      * @param string|null $user_agent set to null to use Crossref Public API
      * @param HttpClientInterface $http_client
      */
-    public function __construct(?string $user_agent, HttpClientInterface $http_client)
+    public function __construct(?string $user_agent, HttpClientInterface $http_client, int $min_score = 80)
     {
         $this->http_client = $http_client;
         $this->request_options = [
@@ -39,6 +44,7 @@ class CrossrefClient
         if ($user_agent) {
             $this->request_options['headers']['User-Agent'] = $user_agent;
         }
+        $this->min_score = $min_score;
     }
 
     /**
@@ -48,8 +54,8 @@ class CrossrefClient
      */
     public function request(string $doi): ResponseInterface
     {
+        $uri = "https://api.crossref.org/works/$doi";
         try {
-            $uri = "https://api.crossref.org/works/$doi";
             return $this->http_client->request('GET', $uri, $this->request_options);
         } catch (TransportExceptionInterface $e) {
             throw new CrossrefLookupException("Error fetching from Crossref <$uri>", $e->getCode(), $e);
@@ -62,9 +68,9 @@ class CrossrefClient
      */
     public function search(string $search_string): ResponseInterface
     {
+        $search_string = urlencode($search_string);
+        $uri = "https://api.crossref.org/works?query.bibliographic=$search_string&rows=1";
         try {
-            $search_string = urlencode($search_string);
-            $uri = "https://api.crossref.org/works/#?query.bibliographic=$search_string";
             return $this->http_client->request('GET', $uri, $this->request_options);
         } catch (TransportExceptionInterface $e) {
             throw new CrossrefLookupException("Error fetching from Crossref <$uri>", $e->getCode(), $e);

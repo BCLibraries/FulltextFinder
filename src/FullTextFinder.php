@@ -58,6 +58,8 @@ class FullTextFinder
         if ($doi = $this->getDOI($search_string)) {
             return $this->fulltext_service->findByDOI($doi);
         }
+
+        return $this->fulltext_service->findByCitation($search_string);
         return null;
     }
 

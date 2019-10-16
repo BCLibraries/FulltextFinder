@@ -9,6 +9,10 @@ class CrossrefParser
         $json = json_decode($json, false);
         $message = $json->message;
 
+        if (isset($message->items)) {
+            $message = $message->items[0];
+        }
+
         $response = new CrossrefResponse();
 
         // Crossref data is sparse and fields are often not populated, so null-check everything.
