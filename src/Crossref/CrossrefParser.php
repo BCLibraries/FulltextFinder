@@ -22,7 +22,7 @@ class CrossrefParser
             ->setPublisher($message->publisher ?? null)
             ->setVolume($message->volume ?? null)
             ->setIssue($message->issue ?? null)
-            ->setPage($message->page?? null)
+            ->setPage($message->page ?? null)
             ->setScore($message->score ?? null)
             ->setAlternativeIds($message->{'alternative-id'} ?? []);
 
@@ -36,12 +36,16 @@ class CrossrefParser
 
         if (isset($message->{'journal-issue'})) {
             $date = $message->{'journal-issue'}->{'published-print'}->{'date-parts'} ?? [];
-            $response->setPublishedPrintDate($date[0]);
+            if (isset($date[0])) {
+                $response->setPublishedPrintDate($date[0]);
+            }
         }
 
         if (isset($message->{'published-online'})) {
             $date = $message->{'published-online'}->{'date-parts'} ?? [];
-            $response->setPublishedOnlineDate($date[0]);
+            if (isset($date[0])) {
+                $response->setPublishedOnlineDate($date[0]);
+            }
         }
 
         return $response;

@@ -39,6 +39,10 @@ class FullTextService
             $libkey_parsed = $this->libkey->parse($libkey_api_response);
             $crossref_parsed = $this->crossref->parse($crossref_api_response);
 
+            $crossref_info = $crossref_api_response->getInfo();
+            $crossref_parsed->setTotalTime($crossref_info['total_time']);
+            $crossref_parsed->setHttpStatusCode($crossref_info['http_code']);
+
             return new FinderResponse($crossref_parsed, $libkey_parsed);
         } catch (LibKeyLookupException|CrossrefLookupException $e) {
             throw new FullTextFinderException($e->getMessage(), $e->getCode(), $e);

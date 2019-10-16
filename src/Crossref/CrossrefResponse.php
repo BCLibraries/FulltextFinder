@@ -61,6 +61,12 @@ class CrossrefResponse
     /** @var int|null */
     private $is_referenced_by_count;
 
+    /** @var int */
+    private $http_status_code;
+
+    /** @var float */
+    private $total_time;
+
     public function getDOI(): ?string
     {
         return $this->doi;
@@ -373,6 +379,36 @@ class CrossrefResponse
     public function setIsReferencedByCount(?int $is_referenced_by_count): CrossrefResponse
     {
         $this->is_referenced_by_count = $is_referenced_by_count;
+        return $this;
+    }
+
+    public function getHttpStatusCode(): ?int
+    {
+        return $this->http_status_code;
+    }
+
+    /**
+     * @param int $http_status_code
+     * @return CrossrefResponse
+     */
+    public function setHttpStatusCode(int $http_status_code): CrossrefResponse
+    {
+        $this->http_status_code = $http_status_code;
+        return $this;
+    }
+
+    public function getTotalTime(): ?float
+    {
+        return $this->total_time;
+    }
+
+    /**
+     * @param float $total_time
+     * @return CrossrefResponse
+     */
+    public function setTotalTime(float $total_time): CrossrefResponse
+    {
+        $this->total_time = $total_time;
         return $this;
     }
 }

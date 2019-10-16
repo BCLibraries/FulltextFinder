@@ -21,15 +21,24 @@ class CrossrefClient
      */
     private $http_client;
 
-    public function __construct(string $user_agent, HttpClientInterface $http_client)
+    /**
+     * CrossrefClient constructor.
+     *
+     * @param string|null $user_agent set to null to use Crossref Public API
+     * @param HttpClientInterface $http_client
+     */
+    public function __construct(?string $user_agent, HttpClientInterface $http_client)
     {
         $this->http_client = $http_client;
         $this->request_options = [
             'headers' => [
-                'User-Agent' => $user_agent,
                 'Accept' => 'application/json'
             ]
         ];
+
+        if ($user_agent) {
+            $this->request_options['headers']['User-Agent'] = $user_agent;
+        }
     }
 
     /**
@@ -69,15 +78,20 @@ class CrossrefClient
      */
     public function parse(ResponseInterface $response): CrossrefResponse
     {
+        $ret_val = new CrossrefResponse();
+
         try {
             if ($response->getStatusCode() === 200) {
-                return CrossrefParser::parse($response->getContent());
+                $ret_val = CrossrefParser::parse($response->getContent());
+                $info = $response->getInfo();
+                $ret_val->setHttpStatusCode($info['http_code']);
+                $ret_val->setTotalTime($info['total_time']);
             }
         } catch (ClientExceptionInterface|RedirectionExceptionInterface|ServerExceptionInterface|TransportExceptionInterface $e) {
             $error_url = $response->getInfo()['url'];
             throw new CrossrefLookupException("Error fetching from Crossref <$error_url>", $e->getCode(), $e);
         }
 
-        return new CrossrefResponse();
+        return $ret_val;
     }
 }

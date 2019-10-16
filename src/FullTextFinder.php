@@ -19,10 +19,18 @@ class FullTextFinder
      */
     private $fulltext_service;
 
+    /**
+     * Build a FullTextFinder
+     *
+     * @param string $libkey_library_id
+     * @param string $libkey_apikey
+     * @param string|null $crossref_client_user_agent omit to use Crossref Public API
+     * @return FullTextFinder
+     */
     public static function build(
         string $libkey_library_id,
         string $libkey_apikey,
-        string $crossref_client_user_agent
+        string $crossref_client_user_agent = null
     ): FullTextFinder {
         $http = new CurlHttpClient();
 

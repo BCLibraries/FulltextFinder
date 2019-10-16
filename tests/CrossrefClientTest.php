@@ -5,7 +5,7 @@ namespace BCLib\Tests;
 use BCLib\FulltextFinder\Crossref\CrossrefClient;
 use PHPUnit\Framework\TestCase;
 
-require_once __DIR__.'/FullTextFinderMockHTTPClient.php';
+require_once __DIR__ . '/FullTextFinderMockHTTPClient.php';
 
 class CrossrefClientTest extends TestCase
 {
@@ -33,7 +33,12 @@ class CrossrefClientTest extends TestCase
 
     public function testRequestSetsUserAgentCorrectly()
     {
-        $expected_options = ['headers' => ['User-Agent' => $this->user_agent]];
+        $expected_options = [
+            'headers' => [
+                'User-Agent' => $this->user_agent,
+                'Accept' => 'application/json'
+            ]
+        ];
         $this->crossref_client->request('/10.001/notarealdoi');
         $actual_options = $this->http_client->last_options;
         $this->assertEquals($expected_options, $actual_options);
@@ -47,9 +52,10 @@ class CrossrefClientTest extends TestCase
         $this->assertEquals($expected_uri, $actual_uri);
     }
 
-    public function testSearchSetsUserAgentCorrectly()
+    public function testSearchSetsNoUserAgentByDefault()
     {
-        $expected_options = ['headers' => ['User-Agent' => $this->user_agent]];
+        $this->crossref_client = new CrossrefClient(null, $this->http_client);
+        $expected_options = ['headers' => ['Accept' => 'application/json']];
         $this->crossref_client->search('a citation to search');
         $actual_options = $this->http_client->last_options;
         $this->assertEquals($expected_options, $actual_options);
