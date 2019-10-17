@@ -16,23 +16,35 @@ FulltextFinder is currently a 0.* release, so things will change drastically wit
 ## Usage
 
 ```php
+use BCLib\FulltextFinder\Config;
 use BCLib\FulltextFinder\FullTextFinder;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-# A unique User-Agent header string to send to Crossref.
-$user_agent = 'BCBento/0.1 (https://library.bc.edu/search; mailto:benjamin.florin@bc.edu)';
-
 # LibKey API identifiers.
-$xxxxxx_xxxxxx = 'xxxxxxxx-xxx-xxxx-xxxx-xxxxxxxxxxxx';
+$libkey_apikey = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx';
 $libkey_id = 'xxx';
 
-$finder = FullTextFinder::build($libkey_id, $libkey_apikey, $user_agent);
-$response = $finder->find('The DOI we are looking for is 10.1371/journal.pone.0193984');
+$config = new Config();
+$config->setUserAgent('MyApp/1.1 (https://mylibrary.college.edu/search; mailto:myapp.admin@cikkege.edu)')
+    ->setFindByCitationMinLength(50);
 
-echo $response->getTitle() . "\n";
-echo "\t" . $response->getFullText() . "\n";
+$finder = FullTextFinder::build($libkey_id, $libkey_apikey, $config);
+$response = $finder->find('Ben-Harush, A., Ezra-Shiovitz, S., Doron, I., Alon, S., Leibovitz, A., et al. (2017). Ageism among physicians, nurses, and social workers: findings from a qualitative study. European Journal of Ageing, 14(1), 39-48.');
+
+echo "{$response->getTitle()}\n";
+echo "\t{$response->getFullText()}\n";
 ```
+
+## Configuration
+
+The `BCLib\FulltextFinder\Config` object carries all optional FullTextFinder configuration parameters:
+
+Parameter | Description | Default
+--------- | ------------| -------
+`UserAgent` | The `User-Agent` header sent to the Crossref API. For User-Agent requirements, see  [the Crossref API docs](https://github.com/CrossRef/rest-api-doc#meta). If the User-Agent is not set appropriately or is set to `null`, Crossref requests will be made in the public API pool. | `null`
+`FindByCitationMinLength` | The minimum length of a search string in characters before find-by-citation will be applied. Searches under this length will look for a DOI in the string but will not query Crossref if a DOI is not found. | 20
+
 
 # Running tests
 

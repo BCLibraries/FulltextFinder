@@ -63,7 +63,7 @@ class CrossrefClientTest extends TestCase
 
     public function testSearhSendsCorrectURL()
     {
-        $expected_uri = 'https://api.crossref.org/works/#?query.bibliographic=a+citation+to+search';
+        $expected_uri = 'https://api.crossref.org/works?query.bibliographic=a+citation+to+search&rows=1';
         $this->crossref_client->search('a citation to search');
         $actual_uri = $this->http_client->last_uri;
         $this->assertEquals($expected_uri, $actual_uri);

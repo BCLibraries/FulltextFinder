@@ -3,7 +3,9 @@
 namespace BCLib\FulltextFinder;
 
 use BCLib\FulltextFinder\Crossref\CrossrefClient;
+use BCLib\FulltextFinder\Crossref\CrossrefResponse;
 use BCLib\LibKeyClient\LibKeyClient;
+use BCLib\LibKeyClient\LibKeyResponse;
 use Symfony\Component\HttpClient\CurlHttpClient;
 
 class FullTextFinder
@@ -20,31 +22,38 @@ class FullTextFinder
     private $fulltext_service;
 
     /**
+     * @var Config
+     */
+    private $config;
+
+    /**
      * Build a FullTextFinder
      *
      * @param string $libkey_library_id
      * @param string $libkey_apikey
-     * @param string|null $crossref_client_user_agent omit to use Crossref Public API
+     * @param Config $config Optional configuration values
      * @return FullTextFinder
      */
     public static function build(
         string $libkey_library_id,
         string $libkey_apikey,
-        string $crossref_client_user_agent = null
+        Config $config = null
     ): FullTextFinder {
         $http = new CurlHttpClient();
+        $config = $config ?? new Config();
 
         $libkey = new LibKeyClient($libkey_library_id, $libkey_apikey, $http);
-        $crossref = new CrossrefClient($crossref_client_user_agent, $http);
+        $crossref = new CrossrefClient($config->getUserAgent(), $http);
 
         $full_text_service = new FullTextService($crossref, $libkey);
 
-        return new FullTextFinder($full_text_service);
+        return new FullTextFinder($full_text_service, $config);
     }
 
-    public function __construct(FullTextService $fulltext_service)
+    public function __construct(FullTextService $fulltext_service, Config $config)
     {
         $this->fulltext_service = $fulltext_service;
+        $this->config = $config;
     }
 
     /**
@@ -59,8 +68,11 @@ class FullTextFinder
             return $this->fulltext_service->findByDOI($doi);
         }
 
-        return $this->fulltext_service->findByCitation($search_string);
-        return null;
+        if (strlen($search_string) > $this->config->getFindByCitationMinLength()) {
+           return $this->fulltext_service->findByCitation($search_string);
+        }
+
+        return new FinderResponse(new CrossrefResponse(), new LibKeyResponse());
     }
 
     /**
