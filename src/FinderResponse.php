@@ -48,7 +48,7 @@ class FinderResponse
 
     public function getFullText(): ?string
     {
-        return $this->libkey->getFullTextFile();
+        return $this->libkey->getFullTextFile() ?: $this->libkey->getContentLocation();
     }
 
     public function getVolume(): ?string
