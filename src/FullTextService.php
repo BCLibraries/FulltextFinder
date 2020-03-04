@@ -22,15 +22,15 @@ class FullTextService
     private $libkey;
 
     /**
-     * @var int
+     * @var ResultMatcher
      */
-    private $min_crossref_score;
+    private $matcher;
 
-    public function __construct(CrossrefClient $crossref, LibKeyClient $libkey, int $min_crossref_score = 50)
+    public function __construct(CrossrefClient $crossref, LibKeyClient $libkey, ResultMatcher $matcher)
     {
         $this->crossref = $crossref;
         $this->libkey = $libkey;
-        $this->min_crossref_score = $min_crossref_score;
+        $this->matcher = $matcher;
     }
 
     /**
@@ -67,7 +67,8 @@ class FullTextService
             $crossref_parsed->setTotalTime($crossref_info['total_time']);
             $crossref_parsed->setHttpStatusCode($crossref_info['http_code']);
 
-            if ($crossref_parsed->getScore() < $this->min_crossref_score) {
+            // Crossref result doesn't pass muster? Return an empty response.
+            if (! $this->matcher->isMatch($crossref_parsed, $search_string)) {
                 return new FinderResponse(new CrossrefResponse(), new LibKeyResponse());
             }
 

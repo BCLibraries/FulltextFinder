@@ -2,25 +2,34 @@
 
 namespace BCLib\FulltextFinder\Tests;
 
+use BCLib\FulltextFinder\Crossref\CrossrefClient;
+use BCLib\FulltextFinder\ResultMatcher;
+use BCLib\LibKeyClient\LibKeyClient;
 use Mockery;
 use PHPUnit\Framework\TestCase;
 
 class FullTextServiceTest extends TestCase
 {
     /**
-     * @var \BCLib\LibKeyClient\LibKeyClient|\Mockery\LegacyMockInterface|\Mockery\MockInterface
+     * @var LibKeyClient|\Mockery\LegacyMockInterface|\Mockery\MockInterface
      */
     private $libkey;
 
     /**
-     * @var \BCLib\FulltextFinder\Crossref\CrossrefClient|\Mockery\LegacyMockInterface|\Mockery\MockInterface
+     * @var CrossrefClient|\Mockery\LegacyMockInterface|\Mockery\MockInterface
      */
     private $crossref;
 
+    /**
+     * @var ResultMatcher|Mockery\LegacyMockInterface|Mockery\MockInterface
+     */
+    public $matcher;
+
     public function setUp()
     {
-        $this->libkey = Mockery::mock(\BCLib\LibKeyClient\LibKeyClient::class);
-        $this->crossref = Mockery::mock(\BCLib\FulltextFinder\Crossref\CrossrefClient::class);
+        $this->libkey = Mockery::mock(LibKeyClient::class);
+        $this->crossref = Mockery::mock(CrossrefClient::class);
+        $this->matcher = Mockery::mock(ResultMatcher::class);
     }
 
     public function testFindByDOILooksInLibKeyAndCrossref()
