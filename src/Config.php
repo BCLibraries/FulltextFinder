@@ -18,6 +18,11 @@ namespace BCLib\FulltextFinder;
  *                                 not query Crossref if a DOI is not found.
  *                                 default: 20
  *
+ *     * FindByCitationMinMatchScore - The minimum Crossref score to automatically match a result.
+ *
+ *     * FindByCitationMinTitleSimilarity - The minimum title similarity (as a percentage) to match a result with a
+ *                                          Crossref score below the minimum.
+ *
  * @package BCLib\FulltextFinder
  */
 class Config
@@ -27,6 +32,12 @@ class Config
 
     /** @var int */
     private $find_by_citation_min_length = 20;
+
+    /** @var int */
+    private $find_by_citation_min_match_score = 50;
+
+    /** @var int */
+    private $find_by_citation_min_title_similarity = 95;
 
     public function getUserAgent(): ?string
     {
@@ -52,7 +63,7 @@ class Config
      * Set minimum length of search string before performing a citation search
      *
      * @param int $find_by_citation_min_length
-     * @return Config
+     * @return self
      */
     public function setFindByCitationMinLength(int $find_by_citation_min_length): Config
     {
@@ -60,5 +71,41 @@ class Config
         return $this;
     }
 
+    public function getFindByCitationMinMatchScore(): int
+    {
+        return $this->find_by_citation_min_match_score;
+    }
+
+    /**
+     * Set minimum Crossref match score or automatic match
+     *
+     * @param int $find_by_citation_min_match_score
+     * @return self
+     */
+    public function setFindByCitationMinMatchScore(int $find_by_citation_min_match_score): Config
+    {
+        $this->find_by_citation_min_match_score = $find_by_citation_min_match_score;
+        return $this;
+    }
+
+    public function getFindByCitationMinTitleSimilarity(): int
+    {
+        return $this->find_by_citation_min_title_similarity;
+    }
+
+    /**
+     * Set the minimum similarity between search string and title
+     *
+     * Searches with low Crossref match scores are checked by title against the top
+     * result. This score determines how close a match will trigger success.
+     *
+     * @param int $percentage
+     * @return self
+     */
+    public function setFindByCitationMinTitleSimilarity(int $percentage): Config
+    {
+        $this->find_by_citation_min_title_similarity = $percentage;
+        return $this;
+    }
 
 }

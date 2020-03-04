@@ -22,17 +22,12 @@ class CrossrefClient
     private $http_client;
 
     /**
-     * @var int
-     */
-    private $min_score;
-
-    /**
      * CrossrefClient constructor.
      *
      * @param string|null $user_agent set to null to use Crossref Public API
      * @param HttpClientInterface $http_client
      */
-    public function __construct(?string $user_agent, HttpClientInterface $http_client, int $min_score = 80)
+    public function __construct(?string $user_agent, HttpClientInterface $http_client)
     {
         $this->http_client = $http_client;
         $this->request_options = [
@@ -44,7 +39,6 @@ class CrossrefClient
         if ($user_agent) {
             $this->request_options['headers']['User-Agent'] = $user_agent;
         }
-        $this->min_score = $min_score;
     }
 
     /**

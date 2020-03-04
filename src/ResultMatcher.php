@@ -25,7 +25,7 @@ class ResultMatcher
     /** @var int */
     private $min_title_match_percentage;
 
-    public function __construct(int $min_score, int $min_title_length = 25, int $min_title_match_percentage = 95)
+    public function __construct(int $min_score = 50, int $min_title_length = 25, int $min_title_match_percentage = 95)
     {
         $this->min_score = $min_score;
         $this->min_title_length = $min_title_length;

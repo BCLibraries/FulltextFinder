@@ -44,8 +44,13 @@ class FullTextFinder
 
         $libkey = new LibKeyClient($libkey_library_id, $libkey_apikey, $http);
         $crossref = new CrossrefClient($config->getUserAgent(), $http);
+        $matcher = new ResultMatcher(
+            $config->getFindByCitationMinMatchScore(),
+            $config->getFindByCitationMinLength(),
+            $config->getFindByCitationMinTitleSimilarity()
+        );
 
-        $full_text_service = new FullTextService($crossref, $libkey);
+        $full_text_service = new FullTextService($crossref, $libkey, $matcher);
 
         return new FullTextFinder($full_text_service, $config);
     }
@@ -69,7 +74,7 @@ class FullTextFinder
         }
 
         if (strlen($search_string) > $this->config->getFindByCitationMinLength()) {
-           return $this->fulltext_service->findByCitation($search_string);
+            return $this->fulltext_service->findByCitation($search_string);
         }
 
         return new FinderResponse(new CrossrefResponse(), new LibKeyResponse());
