@@ -17,7 +17,7 @@ class CrossrefParserTest extends TestCase
      */
     public $json;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->parser = new CrossrefParser();
         $this->json = file_get_contents(__DIR__ . '/crossref-response-01.json');

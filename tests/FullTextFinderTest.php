@@ -26,7 +26,7 @@ class FullTextFinderTest extends \PHPUnit\Framework\TestCase
      */
     private $finder;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->fulltext_service = Mockery::mock(\BCLib\FulltextFinder\FullTextService::class);
         $this->libkey = Mockery::mock(\BCLib\LibKeyClient\LibKeyClient::class);
@@ -34,7 +34,7 @@ class FullTextFinderTest extends \PHPUnit\Framework\TestCase
         $this->finder = new BCLib\FulltextFinder\FullTextFinder($this->fulltext_service, new \BCLib\FulltextFinder\Config());
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         Mockery::close();
     }

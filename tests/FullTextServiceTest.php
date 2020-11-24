@@ -25,7 +25,7 @@ class FullTextServiceTest extends TestCase
      */
     public $matcher;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->libkey = Mockery::mock(LibKeyClient::class);
         $this->crossref = Mockery::mock(CrossrefClient::class);

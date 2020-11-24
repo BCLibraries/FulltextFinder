@@ -24,7 +24,7 @@ class CrossrefClientTest extends TestCase
      */
     protected $http_client;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->http_client = new FullTextFinderMockHTTPClient();
         $this->user_agent = 'Searcher/0.1 (https://library.university.edu/search; mailto:admin@university.edu)';

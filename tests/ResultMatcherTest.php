@@ -12,7 +12,7 @@ class ResultMatcherTest extends TestCase
     /** @var ResultMatcher */
     public $matcher;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->matcher = new ResultMatcher(50);
     }

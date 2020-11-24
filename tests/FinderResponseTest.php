@@ -30,7 +30,7 @@ class FinderResponseTest extends TestCase
      */
     private $libkey;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->crossref = new CrossrefResponse();
         $this->crossref->setTitles(['Title of article']);
